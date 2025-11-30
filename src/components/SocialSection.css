@@ -1,0 +1,159 @@
+.social {
+  background: radial-gradient(circle at top, #2b160f 0, #090404 60%, #050303 100%);
+}
+
+.social-wrapper {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+}
+
+.social-left h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.social-left p {
+  margin-top: 10px;
+  opacity: 0.86;
+}
+
+/* ICONS WRAPPER */
+.social-icons {
+  display: flex;
+  gap: 24px;
+  margin-top: 22px;
+  align-items: flex-start;
+}
+
+/* ONE BLOCK = icon + title */
+.social-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* base circle */
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: #1a0d08;
+  border: 1px solid rgba(255, 179, 71, 0.4);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+/* hover effect */
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
+  filter: brightness(1.1);
+}
+
+/* individual colors */
+.social-icon.wa {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.social-icon.ig {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fdf497 0,
+    #fd5949 45%,
+    #d6249f 70%,
+    #285aeb 100%
+  );
+}
+
+.social-icon.fb {
+  background: linear-gradient(135deg, #1877f2, #1456b8);
+}
+
+/* TITLE UNDER ICON */
+.social-icon-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  /* subtle fade/slide animation */
+  animation: socialLabelIn 0.6s ease-out forwards;
+  transform: translateY(4px);
+}
+
+/* fade / slide up animation */
+@keyframes socialLabelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateY(4px);
+  }
+}
+
+/* ===== MOVE EACH LOGO SEPARATELY HERE ===== */
+/* change margin-top to move a block up or down */
+
+.social-wa {
+  margin-top: 0;      /* WhatsApp block */
+}
+
+.social-ig {
+  margin-top: 0px;    /* Instagram block */
+  margin-left: 25px;
+}
+
+.social-fb {
+  margin-top: 0px;   /* Facebook block */
+  margin-left: 25px;
+}
+
+/* NOTE:
+   - increase value -> block moves down
+   - decrease / negative -> block moves up
+*/
+
+/* small note text */
+.social-note {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* Right column card */
+.social-right {
+  padding: 22px 20px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #180c07, #28130e);
+  border: 1px solid rgba(255, 179, 71, 0.25);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.9);
+}
+
+.social-right h3 {
+  font-size: 1.2rem;
+  color: #ffb347;
+}
+
+.social-right p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .social-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+}
