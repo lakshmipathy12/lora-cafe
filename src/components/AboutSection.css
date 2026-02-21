@@ -1,3 +1,7 @@
+/* ============================================================
+   ABOUT SECTION – LORA CAFÉ
+   ============================================================ */
+
 .about {
   background: radial-gradient(circle at top, #2a160f 0, #0a0402 60%, #050303 100%);
 }
@@ -6,17 +10,20 @@
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 60px;
+  align-items: center;
 }
 
 .about-text h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin: 12px 0 14px;
+  line-height: 1.25;
 }
 
 .about-text p {
   margin-top: 10px;
   opacity: 0.86;
   line-height: 1.7;
+  font-size: 0.97rem;
 }
 
 .about-highlight {
@@ -24,7 +31,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 18px;
-  padding: 22px;
+  padding: 24px;
   border-radius: 26px;
   background: linear-gradient(145deg, #1a0d09, #2b1610);
   border: 1px solid rgba(255, 179, 71, 0.25);
@@ -40,11 +47,171 @@
 .about-stat p {
   font-size: 0.9rem;
   opacity: 0.8;
+  margin-top: 2px;
 }
 
-/* Responsive */
-@media (max-width: 960px) {
+/* ============================================================
+   MEDIA QUERIES – ABOUT
+   ============================================================ */
+
+/* ── Large Desktop (≥ 1440px) ──────────────────────────────── */
+@media (min-width: 1440px) {
+  .about-wrapper {
+    gap: 80px;
+  }
+
+  .about-text h2 {
+    font-size: 2.6rem;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+  }
+
+  .about-highlight {
+    padding: 30px;
+    gap: 24px;
+  }
+
+  .about-stat span {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── Laptop S / iPad Landscape (≤ 1024px) ─────────────────── */
+@media (max-width: 1024px) {
+  .about-wrapper {
+    gap: 40px;
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ── Tablet Portrait (≤ 900px) ─────────────────────────────── */
+@media (max-width: 900px) {
   .about-wrapper {
     grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .about-highlight {
+    max-width: 620px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .about-stat p {
+    text-align: center;
+  }
+}
+
+/* ── Tablet (≤ 768px) ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-text h2 {
+    font-size: 1.85rem;
+  }
+
+  .about-text p {
+    font-size: 0.93rem;
+  }
+
+  .about-highlight {
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+}
+
+/* ── Mobile L (≤ 640px) ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .about-wrapper {
+    gap: 24px;
+  }
+
+  .about-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-highlight {
+    gap: 14px;
+    padding: 18px 16px;
+  }
+
+  .about-stat span {
+    font-size: 1.15rem;
+  }
+}
+
+/* ── Mobile M (≤ 480px) ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .about-text h2 {
+    font-size: 1.55rem;
+  }
+
+  .about-text p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .about-highlight {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+
+  .about-stat span {
+    font-size: 1.05rem;
+  }
+
+  .about-stat p {
+    font-size: 0.84rem;
+  }
+}
+
+/* ── Mobile S (≤ 375px) ─────────────────────────────────────── */
+@media (max-width: 375px) {
+  .about-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-stat span {
+    font-size: 1rem;
+  }
+
+  .about-highlight {
+    gap: 12px;
+    padding: 14px 12px;
+    border-radius: 16px;
+  }
+}
+
+/* ── 4K / Ultra-wide (≥ 2000px) ─────────────────────────────── */
+@media (min-width: 2000px) {
+  .about-wrapper {
+    max-width: 1600px;
+    gap: 100px;
+  }
+
+  .about-text h2 {
+    font-size: 3rem;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+  }
+
+  .about-stat span {
+    font-size: 1.7rem;
+  }
+
+  .about-stat p {
+    font-size: 1rem;
   }
 }

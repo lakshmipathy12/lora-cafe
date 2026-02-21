@@ -1,8 +1,13 @@
+/* ============================================================
+   REVIEWS SECTION – LORA CAFÉ
+   ============================================================ */
+
 .reviews {
   background: radial-gradient(circle at top, #26130d 0, #080404 60%, #050303 100%);
 }
 
-/* header row: title + button right */
+/* ── Header Row ────────────────────────────────────────────── */
+
 .reviews-header-row {
   display: flex;
   justify-content: space-between;
@@ -13,9 +18,11 @@
 .reviews h2 {
   font-size: 2rem;
   margin-top: 10px;
+  line-height: 1.25;
 }
 
-/* New visitor button */
+/* ── "Add Review" Button ─────────────────────────────────────── */
+
 .new-review-btn {
   padding: 10px 20px;
   border-radius: 999px;
@@ -25,6 +32,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85);
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
@@ -40,12 +48,16 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
 }
 
+/* ── Review Grid ────────────────────────────────────────────── */
+
 .review-row {
   margin-top: 28px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
+
+/* ── Review Card ─────────────────────────────────────────────── */
 
 .review-card {
   padding: 18px 18px 20px;
@@ -55,6 +67,12 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
   position: relative;
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 1);
 }
 
 .review-rating {
@@ -67,6 +85,7 @@
   margin-top: 10px;
   font-size: 0.92rem;
   opacity: 0.9;
+  line-height: 1.6;
 }
 
 .review-name {
@@ -75,17 +94,19 @@
   opacity: 0.7;
 }
 
-/* ---------- MODAL ---------- */
+/* ── Modal Overlay ──────────────────────────────────────────── */
 
 .review-modal {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2500;
+  padding: 16px;
   animation: fadeInModal 0.35s ease-out;
 }
 
@@ -94,6 +115,7 @@
     opacity: 0;
     transform: scale(1.02);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -102,8 +124,8 @@
 
 .review-modal-inner {
   position: relative;
-  width: 450px;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 450px;
   background: radial-gradient(circle at top, #24120c 0, #090404 70%);
   border-radius: 26px;
   padding: 22px 22px 24px;
@@ -118,13 +140,13 @@
     opacity: 0;
     transform: translateY(30px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
-/* close button */
 .review-modal-close {
   position: absolute;
   top: 10px;
@@ -140,9 +162,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.2s ease;
 }
 
-/* form elements */
+.review-modal-close:hover {
+  background: rgba(255, 80, 60, 0.7);
+}
+
+/* ── Form Elements ──────────────────────────────────────────── */
 
 .review-form h3 {
   font-size: 1.3rem;
@@ -193,6 +220,7 @@
   color: #f8efe6;
   outline: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7) inset;
+  font-family: inherit;
 }
 
 .review-input::placeholder,
@@ -223,6 +251,7 @@
   cursor: pointer;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.9);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  font-family: inherit;
 }
 
 .review-submit-btn:hover:not(:disabled) {
@@ -237,7 +266,8 @@
   box-shadow: none;
 }
 
-/* Thank you popup overlay */
+/* ── Thank You popup ────────────────────────────────────────── */
+
 .thankyou-popup {
   position: absolute;
   inset: 0;
@@ -256,6 +286,7 @@
   font-weight: 700;
   font-size: 1rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 1);
+  text-align: center;
 }
 
 @keyframes thankYouIn {
@@ -263,23 +294,51 @@
     opacity: 0;
     transform: translateY(20px) scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* ============================================================
+   MEDIA QUERIES – REVIEWS
+   ============================================================ */
+
+/* ── Large Desktop (≥ 1440px) ──────────────────────────────── */
+@media (min-width: 1440px) {
   .review-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+  }
+
+  .reviews h2 {
+    font-size: 2.4rem;
+  }
+
+  .review-card {
+    padding: 22px 22px 26px;
+    border-radius: 24px;
+  }
+
+  .review-text {
+    font-size: 0.97rem;
   }
 }
 
-@media (max-width: 960px) {
+/* ── Laptop S (≤ 1024px) ───────────────────────────────────── */
+@media (max-width: 1024px) {
+  .review-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ── Tablet (≤ 900px) ──────────────────────────────────────── */
+@media (max-width: 900px) {
   .reviews-header-row {
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
   }
 
   .new-review-btn {
@@ -287,8 +346,141 @@
   }
 }
 
+/* ── Tablet Portrait (≤ 768px) ─────────────────────────────── */
+@media (max-width: 768px) {
+  .reviews h2 {
+    font-size: 1.75rem;
+  }
+
+  .review-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .review-modal-inner {
+    padding: 18px 18px 20px;
+    border-radius: 22px;
+  }
+}
+
+/* ── Mobile L (≤ 640px) ─────────────────────────────────────── */
 @media (max-width: 640px) {
   .review-row {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .review-card {
+    padding: 16px 16px 18px;
+    border-radius: 18px;
+  }
+
+  .new-review-btn {
+    padding: 9px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ── Mobile M (≤ 480px) ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .reviews h2 {
+    font-size: 1.55rem;
+  }
+
+  .review-row {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+  }
+
+  .review-form h3 {
+    font-size: 1.15rem;
+  }
+
+  .review-modal-inner {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .star-button {
+    font-size: 1.35rem;
+  }
+
+  .review-submit-btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* ── Mobile S (≤ 375px) ─────────────────────────────────────── */
+@media (max-width: 375px) {
+  .reviews h2 {
+    font-size: 1.4rem;
+  }
+
+  .new-review-btn {
+    font-size: 0.78rem;
+    padding: 8px 14px;
+  }
+
+  .review-card {
+    padding: 14px 14px 16px;
+    border-radius: 16px;
+  }
+
+  .review-rating {
+    font-size: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.84rem;
+  }
+
+  .review-name {
+    font-size: 0.78rem;
+  }
+
+  .review-modal-inner {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .review-form h3 {
+    font-size: 1.05rem;
+  }
+
+  .star-button {
+    font-size: 1.25rem;
+  }
+}
+
+/* ── 4K / Ultra-wide (≥ 2000px) ─────────────────────────────── */
+@media (min-width: 2000px) {
+  .review-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
+  }
+
+  .reviews h2 {
+    font-size: 2.8rem;
+  }
+
+  .review-card {
+    padding: 26px 26px 30px;
+    border-radius: 26px;
+  }
+
+  .review-text {
+    font-size: 1.05rem;
+  }
+
+  .review-name {
+    font-size: 0.95rem;
+  }
+
+  .review-modal-inner {
+    max-width: 560px;
   }
 }

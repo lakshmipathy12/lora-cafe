@@ -1,21 +1,55 @@
 import React from "react";
 import "./Hero.css";
-import coffeeVideo from "../assets/coffee-loop.mp4"; // <-- ADD THIS
+import coffeeVideo from "../assets/coffee-loop.mp4";
 
 const Hero = () => {
   return (
     <section id="hero" className="hero">
       <div className="section-wrapper hero-wrapper">
-        <div className="hero-left">
+        {/* 1️⃣ TOP TEXT – Welcome + Cafe name */}
+        <div className="hero-top-text">
           <p className="hero-tagline">Welcome to</p>
           <h1 className="hero-title">
             LORA <span>Café</span>
           </h1>
+        </div>
+
+        {/* 2️⃣ MIDDLE – IMAGE + ANIMATIONS */}
+        <div className="hero-right">
+          <div className="hero-card hero-image">
+            <div className="coffee-circle">
+              <video
+                className="coffee-video"
+                src={coffeeVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+              ></video>
+            </div>
+
+            <div className="coffee-pour" />
+            <div className="steam steam-1" />
+            <div className="steam steam-2" />
+            <div className="steam steam-3" />
+
+            <span className="hero-image-label">LORA Signature Brew</span>
+          </div>
+
+          <div className="hero-card hero-float-card">
+            <p>"The best place to slow down, sip and feel at home."</p>
+            <span>- LORA Regular</span>
+          </div>
+        </div>
+
+        {/* 3️⃣ BOTTOM TEXT – Subtitle, buttons, metrics */}
+        <div className="hero-bottom-text">
           <p className="hero-subtitle">
             A cozy corner where handcrafted coffee, warm conversations, and
             freshly baked treats come together. Step into LORA, your everyday
             escape in the heart of the city.
           </p>
+
           <div className="hero-buttons">
             <a href="#menu" className="btn-primary">
               Explore Menu
@@ -24,6 +58,7 @@ const Hero = () => {
               View Location →
             </a>
           </div>
+
           <div className="hero-metrics">
             <div>
               <span>50+</span>
@@ -37,34 +72,6 @@ const Hero = () => {
               <span>2019</span>
               <p>Since</p>
             </div>
-          </div>
-        </div>
-
-        <div className="hero-right">
-          <div className="hero-card hero-image">
-            {/* coffee circle + VIDEO INSIDE */}
-            <div className="coffee-circle">
-              <video
-                className="coffee-video"
-                src={coffeeVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-              ></video>
-            </div>
-
-            {/* existing animations stay the same */}
-            <div className="coffee-pour" />
-            <div className="steam steam-1" />
-            <div className="steam steam-2" />
-            <div className="steam steam-3" />
-            <span className="hero-image-label">LORA Signature Brew</span>
-          </div>
-
-          <div className="hero-card hero-float-card">
-            <p>"The best place to slow down, sip and feel at home."</p>
-            <span>- LORA Regular</span>
           </div>
         </div>
       </div>

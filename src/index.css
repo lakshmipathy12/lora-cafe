@@ -1,3 +1,7 @@
+/* ============================================================
+   GLOBAL BASE STYLES – LORA CAFÉ
+   ============================================================ */
+
 *,
 *::before,
 *::after {
@@ -8,12 +12,15 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* base rem anchor */
 }
 
 body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: radial-gradient(circle at top, #2f1b12 0, #100806 40%, #050303 100%);
   color: #f8efe6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -25,11 +32,19 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 section {
   padding: 80px 7%;
 }
 
-/* Simple fade-up animation for all sections */
+/* ============================================================
+   SECTION WRAPPER  – fade-up animation
+   ============================================================ */
+
 .section-wrapper {
   opacity: 0;
   transform: translateY(40px);
@@ -43,7 +58,10 @@ section {
   }
 }
 
-/* Utility */
+/* ============================================================
+   UTILITY BUTTON
+   ============================================================ */
+
 .btn-primary {
   padding: 12px 26px;
   border-radius: 999px;
@@ -61,4 +79,72 @@ section {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
   filter: brightness(1.05);
+}
+
+/* ============================================================
+   MEDIA QUERIES – GLOBAL / SECTION PADDING
+   ============================================================
+
+   Breakpoints used throughout the project:
+   ─────────────────────────────────────────
+   ≤ 375px   Mobile S  (iPhone SE, small Android)
+   ≤ 480px   Mobile M  (iPhone 12 mini, Galaxy A)
+   ≤ 640px   Mobile L  (iPhone 14 Pro Max, large phones)
+   ≤ 768px   Tablet    (iPad mini portrait)
+   ≤ 900px   Tablet+   (iPad portrait, large tablet)
+   ≤ 1024px  Laptop S  (iPad landscape, small laptop)
+   ≤ 1280px  Laptop    (13" MacBook, standard laptop)
+   ≤ 1440px  Desktop   (15" laptop, 1080p monitor)
+   ≥ 1441px  Large     (1440p / 4K screens)
+   ============================================================ */
+
+/* ── Laptop S / iPad landscape ─────────────────────────────── */
+@media (max-width: 1024px) {
+  section {
+    padding: 70px 6%;
+  }
+}
+
+/* ── Tablet ─────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  section {
+    padding: 60px 5%;
+  }
+
+  .section-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ── Mobile L ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  section {
+    padding: 50px 4%;
+  }
+}
+
+/* ── Mobile M ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  section {
+    padding: 44px 16px;
+  }
+}
+
+/* ── Mobile S ──────────────────────────────────────────────── */
+@media (max-width: 375px) {
+  section {
+    padding: 36px 14px;
+  }
+
+  html {
+    font-size: 14px;          /* shrink base slightly on tiny screens */
+  }
+}
+
+/* ── 4K / Ultra-wide ───────────────────────────────────────── */
+@media (min-width: 2000px) {
+  section {
+    padding: 100px 10%;
+  }
 }
